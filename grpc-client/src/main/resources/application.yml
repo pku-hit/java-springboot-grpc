@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: cloud-grpc-client
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+        register: true
+      host: 127.0.0.1
+      port: 8500
+      # 健康检查端口
+      management-port: 80
+grpc:
+  client:
+    cloud-grpc-server:
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
